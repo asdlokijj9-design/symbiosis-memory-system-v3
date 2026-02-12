@@ -16,7 +16,7 @@ class DatabaseCore:
         Args:
             db_path: 数据库文件路径 (默认内存数据库)
         """
-        self.db_path = db_path or ":memory:"
+        self.db_path = db_path or r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
         self._connected = False
     
     async def initialize(self) -> None:

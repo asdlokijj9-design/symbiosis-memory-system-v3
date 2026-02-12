@@ -17,7 +17,7 @@ class VersioningService:
         Args:
             db_path: 数据库路径
         """
-        self.db_path = db_path or ":memory:"
+        self.db_path = db_path or r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
         self._initialized = False
     
     async def _ensure_tables(self) -> None:

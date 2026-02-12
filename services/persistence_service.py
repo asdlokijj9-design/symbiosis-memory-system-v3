@@ -18,7 +18,7 @@ class PersistenceService:
         Args:
             db_path: 数据库路径
         """
-        self.db_path = db_path or ":memory:"
+        self.db_path = db_path or r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
         self.pending_writes: list[dict] = []
         self.write_lock = asyncio.Lock()
         self._initialized = False

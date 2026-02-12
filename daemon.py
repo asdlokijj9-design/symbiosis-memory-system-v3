@@ -8,6 +8,7 @@
 - 优雅关闭
 """
 
+import os
 import sys
 import signal
 import asyncio
@@ -45,8 +46,15 @@ class SymbiosisDaemon:
             from main import SymbiosisMemory
             
             logger.info("🚀 启动共生记忆系统...")
+            # Set SYMBIOSIS_DB_PATH for daemon
+            os.environ['SYMBIOSIS_DB_PATH'] = r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
             self.system = SymbiosisMemory()
+            # Force daemon to use on-disk DB instead of ':memory:'
+            if hasattr(self.system, 'persistence') and self.system.persistence:
+                self.system.persistence.db_path = r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
+            
             await self.system.initialize()
+            logger.info(f"📂 DB路径: {getattr(self.system.persistence, 'db_path', '(unknown)')}")
             logger.info("✅ 共生记忆系统启动成功")
             return True
             

@@ -21,7 +21,7 @@ class BackupService:
             db_path: 原始数据库路径
             backup_dir: 备份目录
         """
-        self.db_path = db_path or ":memory:"
+        self.db_path = db_path or r"/Users/imac/.openclaw/workspace/symbiosis-memory-system/memory.db"
         self.backup_dir = Path(backup_dir) if backup_dir else \
             Path.home() / ".openclaw" / "workspace" / "backups"
         self.backup_dir.mkdir(parents=True, exist_ok=True)
