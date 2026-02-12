@@ -1,0 +1,23 @@
+# Local Memory System V3 - Dependencies
+
+# Core (Python 3.8+ 内置)
+# - sqlite3 (内置)
+# - json (内置)
+# - datetime (内置)
+# - threading (内置)
+# - tempfile (内置)
+# - os (内置)
+# - unittest.mock (内置)
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Utilities
+python-dateutil>=2.8.2
+chardet>=5.0.0
+
+# Optional - 未来扩展
+# alembic>=1.10.0          # 数据库迁移
+# APScheduler>=3.10.0      # 定时任务
+# tabulate>=0.9.0          # 表格输出

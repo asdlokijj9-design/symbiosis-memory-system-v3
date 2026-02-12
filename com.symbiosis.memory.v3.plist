@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 元数据 -->
+    <key>Label</key>
+    <string>com.symbiosis.memory.v3</string>
+    <key>Description</key>
+    <string>共生记忆系统 V3 - 跨会话记忆守护进程</string>
+    <key>Author</key>
+    <string>Mac大白</string>
+    <key>Version</key>
+    <string>3.0</string>
+    
+    <!-- 启动配置 -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>SuccessfulExit</key>
+    <false/>
+    
+    <!-- 进程配置 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>cd /Users/imac/.openclaw/workspace/symbiosis-memory-system && bash monitor.sh start</string>
+    </array>
+    
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/Users/imac/.openclaw/workspace/symbiosis-memory-system</string>
+    
+    <!-- 环境变量 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin</string>
+    </dict>
+    
+    <!-- 标准输出/错误 -->
+    <key>StandardOutPath</key>
+    <string>/Users/imac/.openclaw/workspace/symbiosis-memory-system/symbiosis-launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/imac/.openclaw/workspace/symbiosis-memory-system/symbiosis-launchd.error.log</string>
+    
+    <!-- 资源限制 -->
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+    </dict>
+    <key>SoftResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+    </dict>
+    
+    <!-- 依赖（确保OpenClaw先启动） -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    
+    <!-- 启动/停止超时 -->
+    <key>ExitTimeOut</key>
+    <integer>30</integer>
+</dict>
+</plist>
