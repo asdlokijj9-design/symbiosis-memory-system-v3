@@ -8,6 +8,7 @@ from pathlib import Path
 import json
 import shutil
 import asyncio
+from typing import Optional
 
 
 class BackupService:
